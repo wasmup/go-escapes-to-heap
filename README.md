@@ -49,3 +49,18 @@ go run -gcflags -m main.go
 3
 done
 ```
+
+```sh
+go build -gcflags '-m -l'
+# my
+./main.go:13:13: ... argument does not escape
+./main.go:13:13: a escapes to heap
+./main.go:16:14: ... argument does not escape
+./main.go:16:14: b escapes to heap
+./main.go:18:10: new(int) escapes to heap
+./main.go:20:13: ... argument does not escape
+./main.go:22:13: ... argument does not escape
+./main.go:22:14: *c escapes to heap
+./main.go:8:13: ... argument does not escape
+./main.go:8:14: "done" escapes to heap
+```
